@@ -1,0 +1,450 @@
+
+@font-face{
+	font-family: 'LetterCraft';
+	src: url('Letter-Craft_font/Letter-Craft_font/Letter_Craft.ttf')
+}
+
+	/* .menu_bar ul li:first-child{border-left: 1px solid green;} */
+	* {
+		padding: 0;
+		margin: 0;
+		list-style: none;
+		text-decoration: none;
+	}
+
+	li{
+		list-style: none;
+	}
+/* ===================================== title area ====================================== */
+
+
+	/* ---------------------- // menubar ---------------------- */
+	.menu {
+		background-color: rgb(72,69,77); /* gray */
+		width: 100%;
+		height: 870px;
+		position: relative;
+	}
+
+	.menu #logo {
+		font-size:30px; 
+		display: inline-block;
+		width: 60px; 
+		color: white;  /* whith gray */
+	}  
+
+	.menu_bar { 
+		margin:0px 150px;
+		padding: 30px;
+		position:absolute;
+		width: 80%;
+		transition-duration: 1.3s;
+		transition-timing-function:ease;
+	}
+
+	.menu_bar ul {
+		float: right; 
+		padding : 0px;
+		margin-top: 10px;
+
+	}
+
+	.menu_bar ul li { 
+		width: 120px; 
+		display:inline-block; 
+		width:90px; 
+		margin: auto;
+	} 
+
+	.menu_bar ul li a {
+		display: block;
+		height: 30px;
+		font-size:20px;
+		color:#C5C5C5;  /* white gray */
+		font-family: sans-serif;
+		text-align: center; 
+		line-height: 30px;
+		
+		transition-property: color;
+		transition-duration: 1s;
+	}
+
+	.menu_bar ul li a:hover {
+		color : blue;
+		text-shadow: 0 0 5px blue;
+		transition-duration: 1s;
+	}
+
+/* ---------------------- // menubar ---------------------- */
+/* ---------------------- menubar fixed ---------------------- */
+	.menu_bar_fixed {
+		background-color: black;
+		opacity: 0.7;
+		position: fixed;
+		top: 0;
+		left: 0;
+		margin:0px;
+		width: 100%;
+		height: 60px;
+		transition-timing-function:ease;
+		transition-duration: 1.3s;
+		padding: 30px 0px;
+	}
+
+	.menu_bar_fixed #logo {
+		font-size: 40px;
+		margin-left: 70px;
+	}
+
+	.menu_bar_fixed li a:hover {
+		color: black;
+		text-shadow: 0 0 8px white;
+		transition-duration: 1s;
+	}
+
+
+	.menu_bar_fixed ul {
+		float: right; 
+		padding : 0px;
+		margin-top: 10px;
+		width: 700px;
+	}
+
+	.menu_bar_fixed ul li { 
+		width: 120px; 
+		display:inline-block; 
+		width:120px; 
+		margin: auto;
+	} 
+
+	.menu_bar_fixed ul li a {
+		display: block;
+		height: 30px;
+		font-size:26px;
+		color:#C5C5C5;  /* white gray */
+		font-family: sans-serif;
+		text-align: center; 
+		line-height: 30px;
+		transition-duration: 2s;
+
+	} 
+
+	.menu_content {
+		font-size: 85px;
+		font-family: sans-serif;
+		text-align: center;
+		color:#C5C5C5;   /* white gray */
+		padding: 300px;
+	}
+
+	.yellow_title {
+		color: rgb(240,178,15);  /* orange. */
+	}
+
+	#menu_bar_fixed_clicked{
+		color: red;
+		animation: red_light 1.5s infinite alternate;
+	}
+
+	@keyframes red_light {
+			from{
+				text-shadow: 0 0 4px orange;
+			}
+			to {
+				text-shadow: 0 0 18px red;
+			}
+	}
+/* ---------------------- //menubar fixed ---------------------- */
+
+
+/* ======================= //title area ===================== */
+/* ======================= about area ===================== */
+
+	#about {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		width:100%;
+		height: 800px;
+
+	}
+
+	#about_describe_wrap {
+		background-color: rgb(4, 15, 19);
+		display: inline-box;
+		height: 300px;
+		width: 100%;
+		margin-top: 50px;
+
+	}
+
+	#about_describe {
+		font-size: 20px;
+		color: #8C8C8C;
+		text-align: center;
+		padding-top:40px;
+		line-height: 150%;
+	/*	animation-duration: 3s;
+		animation-name: slidein;  */
+
+	}
+
+	.slidein {
+		animation-duration: 3s;
+		animation-name: slidein;
+		animation-timing-function: ease;
+	}
+
+	.slideout {
+		animation-duration: 3s;
+		animation-name: slideout;
+		animation-timing-function: ease;
+	}
+
+	@keyframes slidein{
+		from{
+			margin-left: 100%;
+			width: 100%;
+		}
+		to {
+			margin-left:0%;
+			width: 100%;
+		}
+
+	}
+
+	@keyframes slideout {
+		from {
+			margin-left: 0%;
+			width: 100%;
+		}
+		to {
+			margin-left: 100%;
+			width: 100%;
+		}
+	}
+
+/* ======================= //about area ===================== */
+/* ====================== cup area ==================== */
+
+	#cup {
+		width: 100%;
+		height: 1050px;
+		background-color: rgb(4,15,19); /* soft black */
+		padding-bottom: 50px;
+	}
+
+	#cup_title {
+		text-align: center;
+		padding-top: 100px;
+		font-family: sans-serif;
+		justify-content: space-around;
+		align-items: center;
+
+	}
+
+	#cup_title h1 {
+		color:rgb(240,178,15);
+		font-size: 80px;
+	}
+
+	#cup_content_wrap {
+		justify-content: space-around;
+		align-items: center;
+		height: 500px;
+		margin-top: 50px;
+	}
+
+	#cup_content_left{ 
+		display:flex;
+		flex-direction: column;
+		justify-content: space-around;
+		height: 600px;
+		width: 25%;
+		float: left; 
+		text-align: center;
+		color: yellow;
+		font-size:35px;
+	}
+
+	#cup_content {
+		width: 50%;
+		height: 600px;
+		text-align: center;
+		display: flex;
+		background: linear-gradient(to top, #6b6471, #9893a3);
+		margin: auto;
+		justify-content: space-around;
+		align-items: center;
+		float: left;
+	}
+
+	#cup_content_right{ 
+		display: flex;
+		flex-direction: column;
+		justify-content: space-around;
+		height: 600px;
+		width: 25%;
+		float: left;
+		color: yellow;
+		font-size: 30px;
+	}
+
+	#cup_foot {
+		background: rgb(4,15,19); /* soft orange */
+		font-family: LetterCraft;
+		color: yellow;	
+	}
+
+	#cup_foot h3{
+		display: flex;
+		flex-direction: column;
+		justify-content: space-around;
+		padding: 40px;
+		text-align: center;
+		font-size: 60px;
+	}
+
+	.cup_pg_bar {
+		display: block;
+		height: 20px;
+		border-radius: 10px;
+		background-color: rgb(43, 194, 83); /* soft orange */
+		position: relative;
+		overflow: hidden; 
+	}
+
+	
+
+	.cup_image_change {
+		padding: 15px;
+		border-radius: 7.5em;
+
+		transition-property: background;
+		transition-duration: 0.8s;
+
+	}
+	.cup_image_change:hover{
+		cursor:pointer;
+		width: 60px;
+	}
+
+	.cup_image_change:active{
+		background-color: #ffffff;
+		transition-property: background;
+		transition-duration: 0.8s;
+	}
+
+	.cup_pg_bar_wrap {
+		margin: 40px;
+	}
+
+	.cup_pg_bar {
+		background: 
+			repeating-linear-gradient(
+    			45deg,
+			    #009900,
+			    #009900 10px,
+			    #00c200 10px,
+			    #00c200 20px
+  			);
+
+  		background-position: right;
+		/* background-size: 100% 20px; */
+	}
+
+/* ===================================== //cup area ====================================== */
+
+/* ====================== team sectoin  =======================  */
+	#team {
+		background-color: white;
+		height: 940px;
+		flex-direction: column;
+		justify-content: center;
+	}
+
+	#team_title {
+		color: black;
+		font-size: 80px;
+		text-align: center;
+		padding-top: 100px;
+	}
+
+	#team_content_1 {
+		/*background-color : red;*/
+		margin-left: 100px;
+	}
+
+	#team_content_2 {
+		background-color: white;
+		height: 300px;
+		align-items: center;
+		text-align: center;
+	}
+
+	#team_img_list {
+		overflow:hidden;
+		margin-left: 0px;
+		width: 10000px;
+	}
+
+	#team_img_list li {
+		text-align: center;
+		float: left;
+		margin-top: 40px;
+		margin-left: 95px;
+		margin-bottom: 10px;
+		list-style: none;
+	}
+
+	.team_img {
+		transition-property: height width margin-top;
+		transition-duration: 1s;
+		height: 150px;
+		width: 150px;
+		margin-top: 40px;
+	}
+
+	.team_img:hover {
+		cursor: pointer;
+		width: 170px;
+		height: 170px;
+	}
+
+	#team_img_list #team_img_middle{
+		height: 230px;
+		width: 230px;
+		margin-top : 0px;
+	}
+
+	#team_img_list #team_img_middle:hover {
+		height: 240px;
+		width: 240px;
+	}
+
+	#team_content_3 {
+		text-align: center;
+		margin-top : 30px;
+		font-size: 50px;
+		background-color: black;
+		color: white; 
+	}
+
+/* ====================== game sectoin  =======================  */
+
+	#game{
+		background-color: black;
+		height: 1000px; 
+		text-align: center;
+		background-color: rgb(4,15,19); /* soft black */
+	}
+
+	#game h1{
+		color: rgb(240,178,15) /* soft orange */;
+		font-size: 80px;
+		padding-top: 100px;
+	}
+/* ====================== //game sectoin  =======================  */
+
+	

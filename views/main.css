@@ -1,0 +1,296 @@
+
+@font-face{
+	font-family: 'LetterCraft';
+	src: url('Letter-Craft_font/Letter-Craft_font/Letter_Craft.ttf')
+}
+
+	/* .menu_bar ul li:first-child{border-left: 1px solid green;} */
+	* {
+		padding: 0;
+		margin: 0;
+		list-style: none;
+		text-decoration: none;
+	}
+/* ===================================== title area ====================================== */
+
+	.menu {
+		background-color: rgb(72,69,77); /* gray */
+		width: 100%;
+		height: 870px;
+		position: relative;
+	}
+
+	.menu #logo {
+		font-size:30px; 
+		display: inline-block;
+		width: 60px; 
+		color: white;  /* whith gray */
+	}  
+
+	.menu_bar { 
+		margin:0px 150px;
+		padding: 30px;
+		position:absolute;
+		width: 80%;
+		transition-duration: 1s;
+		transition-timing-function:ease;
+	}
+
+	.menu_bar_fixed {
+		background-color: black;
+		opacity: 0.7;
+		position: fixed;
+		top: 0;
+		left: 0;
+		margin:0px;
+		width: 100%;
+		height: 60px;
+		transition-timing-function:ease;
+		transition-duration: 1s;
+	}
+
+	.menu_bar_fixed #logo {
+		font-size: 40px;
+	}
+
+	.menu_bar ul {
+		float: right; 
+		padding : 0px;
+		margin-top: 10px;
+
+	}
+
+	.menu_bar ul li { 
+		width: 120px; 
+		display:inline-block; 
+		width:90px; 
+		margin: auto;
+	} 
+
+	.menu_bar ul li a {
+		display: block;
+		height: 30px;
+		font-size:20px;
+		color:#C5C5C5;  /* white gray */
+		font-family: sans-serif;
+		text-align: center; 
+		line-height: 30px;
+	} 
+
+
+	.menu_bar_fixed ul {
+		float: right; 
+		padding : 0px;
+		margin-top: 10px;
+		width: 700px;
+	}
+
+	.menu_bar_fixed ul li { 
+		width: 120px; 
+		display:inline-block; 
+		width:120px; 
+		margin: auto;
+	} 
+
+	.menu_bar_fixed ul li a {
+		display: block;
+		height: 30px;
+		font-size:26px;
+		color:#C5C5C5;  /* white gray */
+		font-family: sans-serif;
+		text-align: center; 
+		line-height: 30px;
+	} 
+
+	.menu_content {
+		font-size: 85px;
+		font-family: sans-serif;
+		text-align: center;
+		color:#C5C5C5;   /* white gray */
+		padding: 300px;
+	}
+
+	.yellow_title {
+		color: rgb(240,178,15);  /* orange. */
+	}
+/* ======================= //title area ===================== */
+/* ======================= about area ===================== */
+
+	#about {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		width:100%;
+		height: 800px;
+	}
+
+	#about_describe {
+		background-color: rgb(4, 15, 19);
+		display: inline-box;
+		height: 300px;
+		width: 100%;
+		margin-top: 50px;
+	}
+
+	#about_describe p {
+		font-size: 20px;
+		color: #8C8C8C;
+		text-align: center;
+		padding-top:40px;
+	}
+
+/* ======================= //about area ===================== */
+/* ====================== cup area ==================== */
+
+	#cup {
+		width: 100%;
+		height: 1050px;
+		background-color: rgb(4,15,19); /* soft black */
+		padding-bottom: 50px;
+	}
+
+	#cup_title {
+		text-align: center;
+		padding-top: 100px;
+		font-family: sans-serif;
+		justify-content: space-around;
+		align-items: center;
+
+	}
+
+	#cup_title h1 {
+		color:rgb(240,178,15);
+		font-size: 80px;
+	}
+
+	#cup_content_wrap {
+		justify-content: space-around;
+		align-items: center;
+		height: 500px;
+		margin-top: 50px;
+	}
+
+	#cup_content_left{ 
+		display:flex;
+		flex-direction: column;
+		justify-content: space-around;
+		height: 600px;
+		width: 25%;
+		float: left; 
+		text-align: center;
+		color: yellow;
+		font-size:35px;
+	}
+
+	#cup_content {
+		width: 50%;
+		height: 600px;
+		text-align: center;
+		display: flex;
+		background: linear-gradient(to top, #6b6471, #9893a3);
+		margin: auto;
+		justify-content: space-around;
+		align-items: center;
+		float: left;
+	}
+
+	#cup_content_right{ 
+		display: flex;
+		flex-direction: column;
+		justify-content: space-around;
+		height: 600px;
+		width: 25%;
+		float: left;
+		color: yellow;
+		font-size: 30px;
+	}
+
+	#cup_foot {
+		background: rgb(4,15,19); /* soft orange */
+		font-family: LetterCraft;
+		color: yellow;	
+	}
+
+	#cup_foot h3{
+		display: flex;
+		flex-direction: column;
+		justify-content: space-around;
+		padding: 40px;
+		text-align: center;
+		font-size: 60px;
+	}
+
+	.cup_pg_bar {
+		display: block;
+		height: 20px;
+		border-radius: 10px;
+		background-color: rgb(43, 194, 83); /* soft orange */
+		position: relative;
+		overflow: hidden; 
+	}
+
+	#cup_pg_bar_wrap {
+		margin: 40px;
+
+	}
+
+/* ===================================== //cup area ====================================== */
+
+/* ====================== team sectoin  =======================  */
+	#team {
+		background-color: white;
+		height: 640px;
+		padding-bottom: 300px;
+	}
+
+	#team_title {
+		color: black;
+		font-size: 80px;
+		text-align: center;
+	}
+
+
+/* ====================== game sectoin  =======================  */
+
+	#game{
+		background-color: black;
+		height: 1000px; 
+		text-align: center;
+		background-color: rgb(4,15,19); /* soft black */
+	}
+
+	#game h1{
+		color: rgb(240,178,15) /* soft orange */;
+		font-size: 80px;
+		padding-top: 100px;
+	}
+/* ====================== //game sectoin  =======================  */
+
+	#team{
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+
+	#team_content_1 {
+
+	}
+
+	#team_content_2 {
+		padding: 80px;
+		display: flex;
+		justify-content: space-around;
+	}
+
+	#team_content_2 img {
+		height: 150px;
+		width: 150px;
+
+	}
+
+	#team_content_2 :nth-child(0) {
+		height: 10px;
+		width: 10px;
+
+	}

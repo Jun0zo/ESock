@@ -1,0 +1,30 @@
+{
+	"team":
+		[
+			{
+				"team_name":"Manchester City",
+				"team_icon_big_file":"manchester_united_big.png",
+				"team_icon_small_file":"manchester_united.png",
+				"player":
+					[
+						{
+							"player_name":"세르히오 아궤로",
+							"player_country":"아르헨티나",
+							"player_position":"아르헨티나",
+							"player_img_big_file":"",
+							"player_img_small_file":""
+						},
+						{
+							"player_name":"실바",
+							"player_country":"아르헨티나",
+							"player_img_big_file":"",
+							"player_img_small_file":""
+						}
+					]
+			},
+			{
+
+			}
+
+		]
+}
