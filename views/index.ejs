@@ -15,14 +15,22 @@
 	<script src="/javascripts/ToProgress_min.js"></script>
 	<script src="/javascripts/script_main.js"></script>
 	<script src="/javascripts/anime.min.js"></script>
+	<style>
+		@media(max-width:1200px){
+			*{
+				
+			}
+		}
+	</style>
 
 </head>
 
 <body>
 	<!--  ========================= menu area =======================  -->
-	<section id="home"></section>
+
 	<section class="menu">
-		<nav class="menu_bar" id="menu_bar_id">
+
+		<div class="menu_bar" id="menu_bar_id">
 			<div id="logo"><h1><span class="yellow_title">E</span>Sock</h1></div>
 				<ul>
 					<li><a href="#home" class="menu_items">HOME</a></li>
@@ -31,12 +39,19 @@
 					<li><a href="#team" class="menu_items">TEAM</a></li>
 					<li><a href="#game" class="menu_items">GAME</a></li>`
 				</ul>
-		</nav>
-		
-		<div class="menu_content" class="content">
-			<h1><span class="yellow_title">E</span>urope</h1>
-			<h1><span class="yellow_title">Soc</span>cer</h1> 
 		</div>
+		
+
+		<div class="menu_content" class="content">
+			<div id="main_title">
+				<h1><span class="yellow_title">E</span>urope</h1>
+				<h1><span class="yellow_title">Soc</span>cer</h1>
+			</div>
+		</div>
+
+
+		
+
 	</section>
 	<!--/* ======================= //menu area ========================== */-->
 	<!--/* ======================= about area ========================== */-->
@@ -118,41 +133,40 @@
 
 <!--  ========================= //cup area ========================  -->
 <!--  ========================= team area ======================  -->
+
 	<section id="team">
 		<div id="team_title" class="title">
 			<h1>TEAM</h1>
 		</div>
+<!--  ----------------------- popup area -----------------------  -->
+		<div id="team_modal">
 
-		<div id="team_content_1" class="content">
-			<select>
-				<option>프리미어리그</option>
-				<option>프리메라리가</option>
-				<option>파리셍제르망</option>
-				<option>세리에A</option>
-			</select>
+
+			<div id="team_modal_content">
+				<span class="close">&times;</span>
+				<h3 id="pop_up_title">Manchester City</h3>
+				<div id="player_img_wrap">
+					<img src="" id="player_main_img">
+				</div>
+				<div id="player_list_wrap">
+					<ul id="player_list">
+						<% for(var i=0; i<20; i++) { %>
+							<li class="player"><img src="" class="player_img"><br><span class="player_name">Aguerod</span></li>
+						<% } %>
+					</ul>
+				</div>
+			</div>
 		</div>
+
 
 		<div id="team_content_2" class="content">
 			<ul id="team_img_list">
-				<li><img class="team_img" src="/images/club_icon/epl/liverpool_big.png"></li>
-				<li><img class="team_img" src="/images/club_icon/epl/chelsea_big.png"></li>
-				<li><img class="team_img" id="team_img_middle" src="/images/club_icon/epl/manchester_city_big.png"></li>
-				<li><img class="team_img" src="/images/club_icon/epl/tottenham_big.png"></li>
-				<li><img class="team_img" src="/images/club_icon/epl/manchester_united_big.png"></li>
-
-
-				<li><img class="team_img" src="/images/club_icon/epl/manchester_united_big.png"></li>
-				<li><img class="team_img" src="/images/club_icon/epl/manchester_united_big.png"></li>
-				<li><img class="team_img" src="/images/club_icon/epl/manchester_united_big.png"></li>
-				<li><img class="team_img" src="/images/club_icon/epl/manchester_united_big.png"></li>
-				<li><img class="team_img" src="/images/club_icon/epl/manchester_united_big.png"></li>
 				<div></div>
 			</ul>
 		</div>
 
-		<button id="test_button">test</button>
 		<div id="team_content_3">
-			<h3 style="color:#C5C5C5"><span style="color:rgb(240,178,15)">M</span>anchester <span  style="color:rgb(240,178,15)">U</span>nited</h3>	
+			<!-- <h3><span>M</span>anchester <span>U</span>nited</h3>	 -->
 		</div>
 
 	</section>

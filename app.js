@@ -8,7 +8,7 @@ const fs = require('fs');
 
 
 app.set('view engine', 'ejs');
-//app.set('.index.ejs', './view');
+//app.set('.index.ejs', './view');;
 
 //var rawdata = fs.readFileSync('cup_list.json');
 
@@ -24,7 +24,7 @@ app.get('/cup.json', function(data){
 });
 
 
-app.listen(8080, function(){
+app.listen(8880, function(){
   console.log('hello ejs');
   console.log('app.js middle');
 });

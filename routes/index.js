@@ -9,7 +9,7 @@ router.get('/', function(req, res, next) {
 });
 
 
-router.get('/cup.json', function(req, res, next) {
+router.get('/cup', function(req, res, next) {
   res.render('A');
   console.log('index.js -> cup.json');
 });

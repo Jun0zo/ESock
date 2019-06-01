@@ -3,15 +3,16 @@
 
 //==============================. 변수 정의. =================================
 var max = 3;
-var index = 0, cup_list, team_list;
+var index = 0;
 var is_scroll_state_up = 1;
 var cur_section = -1, bef_section = -2;
 var is_section_change = -1;
+var cup_list, team_list;
 
 var cur_team_index_front = 0;
 var cur_team_index_back = 4;
 
-
+//alert('f');
 //==============================. 함수 정의. =================================
 function getIndex(target){
 
@@ -21,17 +22,17 @@ function getIndex(target){
 		if( $('#team_img_list li').eq(i).html() === targetR.html())
 			return i;
 	}
+
 }
 
-function chkScrLoc (id, lev){
-	//alert(id + " & " + lev);
+function chkScrLoc (id, lev){	//스크롤 확인 함수
 	if($(document).scrollTop() > $(id).offset().top + lev)
 		return 1;
 	else 
 		return 0;
 }
 
-function clearID(list){
+function clearID(list){	//id값 모두삭제하는 함수
 	list.each(function (){
 		 $(this).removeAttr('id');
 	});
@@ -46,42 +47,94 @@ function hideAll(list){
 	});
 }
 
-function imgSlide(x_pos_diff, to){
+function highLight(string){
+	var result = '<h3>';
+	for(var i = 0; i<string.length; i++){
+		if(i==0)
+			result += '<span>' + string[i] + '</span>';
+		else if(string[i-1] == ' ')
+			result += '<span>' + string[i] + '</span>';
+		else
+			result += string[i];
+	}
 
-	if(to === 'L'){ //왼쪽으로 이동
-		$('#team_img_list').animate({'margin-left' : "-=" + x_pos_diff}, 1000);
-			for(var index=0; index<=5; index++){
+	result += '</h3>';
+	return result;
+}
+
+function imgSlide(x_pos_diff, diff, to){
+	//----------------      왼쪽으로 이동. <--    -----------------
+	$('#team_content_3 h3').remove();
+	if(to === 'L'){
+		var max = 10000;
+		if(cur_team_index_back + diff > max)
+			diff = max - cur_team_index_front;
+		$('#team_img_list').animate({'margin-left' : "-=" + x_pos_diff * diff }, 500);
+		for(var i = 0; i < diff; i++){
+			for(var index=0; index<=5; index++){ //현재 바라보고 있는 인덱스 모두 순회
 				var cur_img = $('.team_img').eq(index + cur_team_index_front);
 				if(index == 0)
-					$(cur_img).css({opacity : 0.0});
+					$(cur_img).css({opacity : 0.0}); //마지막인덱스는 사라짐
 				else if(index == 2)
-					$(cur_img).removeAttr('id');
+					$(cur_img).removeAttr('id'); //중간값에서 작아지게
 				else if(index == 3)
-					$(cur_img).attr({id : 'team_img_middle'});
+					$(cur_img).attr({id : 'team_img_middle'});  //중간값이면 커지게
 				else if(index == 5)
-					$(cur_img).css({opacity : 1.0});
-				
+					$(cur_img).css({opacity : 1.0}); //나오는 이미지는 fadeIn처리
+			}
+			cur_team_index_front += 1;
 		}
-		//$('.team_img').eq(index + cur_team_index_front - 1).css({opacity : 0.0});
-		cur_team_index_front += 1;
-	}
 
-	else if(to === 'R'){ //오른쪽으로 이동
-		$('#team_img_list').animate({'margin-left' : "+=" + x_pos_diff}, 1000);
-			for(var index=0; index<=5; index++){
+		var target_team_name = team_list.PremierLeague[cur_team_index_front + 2];
+		target_team_name = highLight(target_team_name);
+		$('#team_content_3').prepend($(target_team_name));
+
+	}
+	    //----------------       오른쪽으로 이동. -->.    -----------------
+	else if(to === 'R'){
+		var min = 0;
+		if(cur_team_index_back + diff < min)
+			diff = cur_team_index_front- min;
+		$('#team_img_list').animate({'margin-left' : "+=" + x_pos_diff * diff}, 500);
+		for(var i = 0; i < diff; i++){
+			for(var index=0; index<=5; index++){   //현재 바라보고 있는 인덱스 모두 순회
 				var cur_img = $('.team_img').eq(index + cur_team_index_front);
 				if(index == 1)
-					$(cur_img).attr({id : 'team_img_middle'});
+					$(cur_img).attr({id : 'team_img_middle'}); //중간값이면 커지게
 				else if(index == 2)
-					$(cur_img).removeAttr('id');
+					$(cur_img).removeAttr('id'); // 중간값에서 작아지게
 				else if(index == 4)
-					$(cur_img).css({opacity : 0.0});
-				
-			}
-		//$('.team_img').eq(index + cur_team_index_front - 1).css({opacity : 1.0});
-		cur_team_index_front -= 1;
+					$(cur_img).css({opacity : 0.0}); //마지막인덱스는 사라짐
+
+				$('.team_img').eq(cur_team_index_front - 1).css({opacity : 1.0}); //나오는 이미지는 fadeIn처리
+			}	
+			cur_team_index_front -= 1;
+		}
+		var target_team_name = team_list.PremierLeague[cur_team_index_front + 2];
+		target_team_name = highLight(target_team_name);
+		$('#team_content_3').prepend($(target_team_name));
 	}
 }
+
+function replaceAll(str, searchStr, replaceStr){   //문자열 전체변환 함수
+	return str.split(searchStr).join(replaceStr)
+}
+
+function strToSrc(location, str, format){ //상대경로 반환하는 함수
+	str = str.toLowerCase(str)
+	str = replaceAll(str, ' ', '_') + '.' + format;
+	str = location + str;
+	return str;
+}
+
+function isExistence(object){   //객체존재여부 반환하는 함수
+	if(object.length > 0)
+		return true;
+	else
+		return false;
+}
+
+
 
 //============================================= 시작 부분 =============================================
 
@@ -97,13 +150,28 @@ $(document).ready(function() {
 		$('#cup_pg_bar_2').animate({width: cup_list.cup[0].build + '%'});
 		$('#cup_pg_bar_3').animate({width: cup_list.cup[0].skill + '%'});
 	});
+
+	//------------------. team_list 이미지 적용. ------------------
+	$.ajaxSetup({ async: false });
 	$.getJSON('/data/team_list.json', function(data){
 		team_list = data;
+		team_list_reversed = $(team_list.PremierLeague).get().reverse();  //미리 데이터 로딩
+		$(team_list_reversed).each(function(index, data){
+			var next = '<li><img class="team_img" src="' + strToSrc('/images/club_icon/epl/', data, 'png') + '" > </li>';  //이미지 파일 로드
+			$('#team_img_list').prepend($(next));
+
+		})
+		$('.team_img').eq(2).attr({id : 'team_img_middle'});  //중간 요소 크기조정
+
+		var first_setting = highLight(team_list.PremierLeague[2]);
+		$('#team_content_3').prepend($(first_setting));
 	});
 
 	//------------------. team_img 부분 음영처리 ------------------
 	hideAll( $('.team_img') );
 
+
+	$.ajaxSetup({ async: true });
 	//==============================. 스크롤 시. =================================
 	$(window).scroll( function() {
 
@@ -121,7 +189,7 @@ $(document).ready(function() {
 			$('#about_describe').removeClass('slideout');
 			$('#about_describe').addClass('slidein');
 		}
-		
+
 		else{
 			$('#about_describe').removeClass('slidein');
 			$('#about_describe').addClass('slideout');
@@ -155,7 +223,7 @@ $(document).ready(function() {
 				clearID($('.menu_items'));
 				bef_section = cur_section;
 				var menu_name_game = $('.menu_items').toArray()[2];
-				$(menu_name_game).attr({id : 'menu_bar_fixed_clicked'})
+				$(menu_name_game).attr({id : 'menu_bar_fixed_clicked'});
 			}
 		//----------------.  about section 부분 li 색변경. ----------------
 		} else if( chkScrLoc('#about', -300) ){
@@ -168,7 +236,6 @@ $(document).ready(function() {
 			}
 		//----------------.  about section 부분 li 색변경. ----------------
 		} else {
-			//alert('no');
 			cur_section = 0;
 			if(cur_section != bef_section){
 				clearID($('.menu_items'));
@@ -185,7 +252,6 @@ $(document).ready(function() {
 		event.preventDefault();
 		$('html,body').animate({scrollTop:$(this.hash).offset().top}, 500);
 	});
-
 
 	//=============================  cup_list에서 화살표 클릭시 리그 정보 변경. =================================
 
@@ -225,30 +291,47 @@ $(document).ready(function() {
 
 	});
 
+	//=============================  team_list에서 select태그 꾸미기. =================================
+	$('#team_select').change(function() {
+		var select_name = $(this).children('option:selected').text();
+		$(this).siblings('label').text(select_name);
+	})
+
+	//=============================  team_list에서 슬라이드 구현. =================================
 	$('.team_img').click(function(event){
 		var first_li = $('#team_img_list li').eq(0 + cur_team_index_front);
 		var first_img = $('.team_img').eq(0 + cur_team_index_front);
 		var last_li = $('#team_img_list li').eq(4 + cur_team_index_front);
 		var last_img = $('.team_img').eq(4 + cur_team_index_front);
 		var x_pos_diff = $( $('.team_img').eq(1 + cur_team_index_front) ).position().left - $(first_img).position().left; //150.5
-		alert(x_pos_diff);
+		//alert(x_pos_diff);
+
 
 		var clicked_index = getIndex($(event.target));
 		var middle_index = 2+cur_team_index_front
 		var index_diff = Math.abs(clicked_index - middle_index);
 
 		if(clicked_index < middle_index){ //중간보다 왼쪽클릭
-			imgSlide(300, 'R');
+			imgSlide(x_pos_diff , index_diff, 'R');
 		}
 		else if(clicked_index > middle_index){ //중간보다 오른쪽 클릭
-			imgSlide(300, 'L');
+			imgSlide(x_pos_diff , index_diff, 'L');
 		}
-		else{
-
+		else{ //가운데 클릭
+			var modal = $('#team_modal');
+			modal.css({display: "block"});
+			modal.addClass('modal_come_in');
 		}
+	});
 
+	//----------------.  팝업창 디자인. ----------------
 
+	$('.close').click(function(){
+		$('#team_modal').css({display : "none"});
+	});
 
+	$('#team_modal').click(function(){
+		$('#team_modal').css({display : "none"});
 	});
 
 
