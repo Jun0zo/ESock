@@ -11,7 +11,7 @@
 	<!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 	<script type="text/javascript" src="javascripts/script_main.js"></script> -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
+	<script src="/javascripts/ToProgress_min.js"></script>
 	<script src="/javascripts/script_main.js"></script>
 	<script src="/javascripts/anime.min.js"></script>
 	<style>
@@ -25,8 +25,7 @@
 
 </head>
 
-<body ondragstart="return false">
-	<div id="menu"></div>
+<body>
 	<!--  ========================= menu area =======================  -->
 	<section class="menu">
 		<div class="menu_bar" id="menu_bar_id">
@@ -126,7 +125,7 @@
 			<h3>Europ Soccer</h3>
 		</div>
 		<div style="clear:both;"></div>
-	</section>
+	</section">
 <!--  ========================= //cup area ========================  -->
 <!--  ========================= team area ======================  -->
 	<section id="team">
@@ -140,62 +139,19 @@
 				<h3 id="team_cup_name">Europe Premier League<!--  LEAUGE name  javascfrip--></h3>
 			<div>
 		</div>
-	
 <!--  ----------------------- popup area -----------------------  -->
 		<div id="team_modal">
 			<div id="team_modal_content">
 				<span class="close">&times;</span>
 				<h3 id="pop_up_title"><!-- javascript --></h3>
-				<div id="main_content">
-					<div id="menu_select">
-						<div class="team_button"><span>TEAM STATUS</span></div>
-						<div class="player_button"><span>PLAYER STATUS</span></div>
-					</div>
-					<div id="player_main_img_wrap">
-						<img src="" id="player_main_img">
-					</div>
-					
-					<div id="stat_show">
-						<canvas id="stat_canvas" width="500" height="500"></canvas>
-					</div>
+				<div id="player_img_wrap">
+					<img src="" id="player_main_img">
 				</div>
-
-				<div id="player_list_wrap" style="display:none">
+				<div id="player_list_wrap">
 					<ul id="player_list">
-						<!-- db 에서 가져옴 -->
-					</ul>
-					
-				</div>
-				
-				<div id="team_stats" style="display:none">
-					<div class="team_stat">
-						<img src="images/ext_icon/game_count.svg" width="100" height="100">
-						<span style="font-size:40px;">422</span>
-						<span>MATCHES GAMED</span>
-					</div>
-
-					<div class="team_stat">
-							<img src="images/ext_icon/goal_count.svg" width="100" height="100">
-							<span style="font-size:40px;">1423</span>
-							<span>GOALS</span>
-					</div>
-					<div class="team_stat">
-							<img src="images/ext_icon/goalkeeper.svg" width="100" height="100">
-							<span style="font-size:40px;">3</span>
-							<span>CLEAN SHEETS</span>
-					</div>
-
-					<div class="team_stat">
-							<img src="images/ext_icon/win.svg" width="100" height="100">
-							<span style="font-size:40px;">1423</span>
-							<span>WINS</span>
-					</div>
-
-					<div class="team_stat">
-							<img src="images/ext_icon/sad.svg" width="100" height="100">
-							<span style="font-size:40px;">3</span>
-							<span>LOSSES</span>
-					</div>
+                        
+                    </ul>
+                    player2
 				</div>
 			</div>
 		</div>
@@ -211,8 +167,8 @@
 			<!-- <h3><span>M</span>anchester <span>U</span>nited</h3>	 -->
 		</div>
 
-	</div>
-</section>
+	</section>
+
 <!--  ======================== //team area ========================  -->
 
 	<section id="game">
@@ -221,26 +177,10 @@
 				<h1 style="color:white;">GAME</h1>
 			</div>
 
-			<div id="game_time_select">
+			<div id="game_content">
 				
 			</div>
-
-			<!-- <div id="game_content">
-				<ul id="game_list">
-					<li><div class="games_wrap "> 
-							<div class="games"> 
-								<img src="" alt="" width="10%" height="70%"> <span style="float:left;">team1</span> <span>1</span>  
-								<span>0</span>  <span style="float:right">team2</span>	 <img src="" alt="" width="10%" height="70%"> 
-							</div>
-					 	</div>
-					</li>
-					<li><div class="games_wrap "> <div class="games"></div> </div></li>
-					<li><div class="games_wrap "> <div class="games"></div> </div></li>
-					<li><div class="games_wrap"> <div class="games"></div> </div></li>
-				</ul>
-			</div>
 		</div>
-	-->
 	</section>
 </body>
 </html>

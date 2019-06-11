@@ -5,11 +5,19 @@
 }
 
 	/* .menu_bar ul li:first-child{border-left: 1px solid green;} */
+	html, body {
+		height: 100%;
+		zoom: 0.8;
+		overflow-x: none;
+	}
 	* {
 		padding: 0;
 		margin: 0;
 		list-style: none;
 		text-decoration: none;
+		font-family: 'Poppins';
+		-ms-user-select: none; -moz-user-select: -moz-none; -webkit-user-select: none; -khtml-user-select: none; user-select:none;
+
 	}
 
 	li{
@@ -17,21 +25,20 @@
 	}
 
 /* ===================================== title area ====================================== */
-
+	
 
 	/* ---------------------- // menubar ---------------------- */
 	.menu {
 		background-color: rgb(72,69,77); /* gray */
 		width: 100%;
-		height: 870px;
-		position: relative;
+		height: 100%;
 		overflow: hidden;
 	}
 
 	.menu #logo {
 		font-size:30px; 
 		display: inline-block;
-		width: 60px;= ```w`foiniojnjkln/jk jkhjkbjkb.ubk..bbbb.    
+		width: 60px;  
 		color: white;  /* whith gray */
 	}
 
@@ -161,7 +168,11 @@
 
 	#menu_bar_fixed_clicked{
 		color: red;
-		animation: red_light 1.5s infinite alternate;
+		animation-name: red_light;
+		animation-duration: 1.5s;
+		animation-iteration-count: infinite;
+		animation-direction:alternate;
+		animation-delay: 0s;
 	}
 
 	#main_title {
@@ -170,6 +181,8 @@
 		left:50%; 
 		transform:translateX(-50%);
 		z-index: 2;
+		padding-top: 8%
+		
 	}
 
 	@keyframes red_light {
@@ -192,7 +205,7 @@
 		justify-content: center;
 		align-items: center;
 		width:100%;
-		height: 800px;
+		height: 100%;
 
 	}
 
@@ -202,7 +215,6 @@
 		height: 300px;
 		width: 100%;
 		margin-top: 50px;
-
 	}
 
 	#about_describe {
@@ -251,10 +263,12 @@
 /* ====================== cup area ==================== */
 
 	#cup {
+		
 		width: 100%;
-		height: 1050px;
+		height: 100%;
 		background-color: rgb(4,15,19); /* soft black */
-		padding-bottom: 50px;
+
+
 	}
 
 	#cup_title {
@@ -263,7 +277,7 @@
 		font-family: sans-serif;
 		justify-content: space-around;
 		align-items: center;
-
+		padding-top: 5%;
 	}
 
 	#cup_title h1 {
@@ -274,7 +288,6 @@
 	#cup_content_wrap {
 		justify-content: space-around;
 		align-items: center;
-		height: 500px;
 		margin-top: 50px;
 	}
 
@@ -295,6 +308,7 @@
 	}
 
 	#country_name {
+
 	}
 
 	#cup_image {
@@ -325,7 +339,7 @@
 	#cup_content img:nth-child(1) {
 		left:5%;
 		top:40%;
-		
+
 	}
 
 	#cup_content img:nth-child(2) {
@@ -377,16 +391,16 @@
 	.cup_image_change {
 		padding: 15px;
 		border-radius: 7.5em;
-
 		transition-property: background;
 		transition-duration: 0.8s;
 	}
 
 	.cup_image_change:hover{
+
 	}
 
 	.cup_image_change:active{
-		background-color: #ffffff;
+		background-color: rgba(255,255,255, 0.5);
 		transition-property: background;
 		transition-duration: 0.8s;
 	}
@@ -426,10 +440,11 @@
 /* ====================== team sectoin  =======================  */
 	#team {
 		background-color: white;
-		height: 940px;
+		height: 100%;
 		flex-direction: column;
 		justify-content: center;
 		overflow: hidden;
+		padding-top:10%
 	}
 
 	#team_title {
@@ -448,144 +463,10 @@
 		height: 300px;
 		align-items: center;
 		text-align: center;
+		overflow: hidden;
 	}
 
-	.s_c {
-		position: absolute;
-		left: 0;
-		width: 100%;
-		height: 50%;
-	}
-
-	.s_c.top {
-		top: 0;
-	}
-
-	.s_c.bottom {
-		bottom: 0;
-	}
-
-	#app_cover {
-		height: 10px;
-		width: 300px;
-		background-color: blue; 
-	}
-
-	#select_button {
-		position: relative;
-		height: 16px;
-		padding: 12px 14px;
-		border-radius: 4px;
-		cursor: pointer;
-		background-color: green;
-	}
-
-	#options_view_button {
-		top: 300;
-		right: 0px;
-		left: 0px;
-		bottom: 0px;
-		margin: 0;
-		opacity: 0;
-		position: relative;
-		width: 100%;
-		height: 100%;
-		background-color: blue;
-		z-index: 3;
-	}
-
-	#selected_value {
-		font-size: 16px;
-		line-height: 1;
-		margin-right: 26px
-	}
-
-	.option i {
-		width: 16px;
-		height: 16px;
-	}
-
-	.option .label {
-		color: #2d3667;
-		font-size: 16px;
-	}
-
-	.options_view_button:checked + #select_button #chevrons i {
-		color: #2d3667;
-	}
-
-	.options {
-		position: absolute;
-		left: 0;
-		width: 250px;
-	}
-
-	#options {
-
-	}
-
-	#options_view_button ~ #options {
-		border: 1px solid #e2eded;
-		border-color: #eaf1f1 #e4eded #dbe7e7 #e4eded;
-	}
-
-	.option {
-		position: relative;
-		line-height: 1;
-		transition: 0.3s ease all;
-		z-index: 2; 
-	}
-
-	.option i {
-		position: absolute;
-		left: 14px;
-		padding: 0;
-		display: none;
-	}
-
-	#options_view_button:checked ~#option .option i {
-		display: block;
-		padding: 12px 0;
-	}
-
-	.label {
-		display: none;
-		padding : 0
-		
-	}
-
-	#chevros {
-		position: absolute;
-		top: 0;
-		right: 0;
-		bottom: 0;
-		width: 12px;
-		padding: 9px 15px;
-	}
-
-	#chevros i {
-		display: block;
-		height: 50%;
-		color: #d1dede;
-		text-align: right;
-		text-align: center;
-	}
-
-	.s_c:hover ~ i {
-		color:#fff;
-		opacity: 0;
-	}
-
-	.s_c:hover {
-		height:100%;
-		z-index:1;
-	}
-
-	.s_c.bottom:hover + i {
-		bottom:-25px;
-		animation: moveup 0.3s ease 0.1s forwards;
-	}
-
+	
 
 	@keyframes moveup{
 		0% {
@@ -599,23 +480,23 @@
 		}
 	}
 
-
 	#team_img_list {
 		background-color: white; 
-		overflow:hidden; 
-		margin-left: 10px;
 		width: 10400px;
 		height: 300px;
+		margin-left:15%;
 	}
 
 	#team_img_list li {
 		text-align: center;
+		display: block;
 		float: left;
-		margin-top: 40px;
-		margin-left: 95px;
-		margin-bottom: 10px;
+		margin: 25px 10px;
 		list-style: none;
+		width: 250px;
+		height: 250px;
 	}
+
 
 	.team_img {
 		transition-property: height width margin-top;
@@ -623,7 +504,6 @@
 		height: 150px;
 		width: 150px;
 		margin-top: 40px;
-
 	}
 
 	.team_img:hover {
@@ -635,71 +515,24 @@
 	#team_img_list #team_img_middle{
 		height: 230px;
 		width: 230px;
-		margin-top : 0px;
+		margin-top : 0;
 	}
 
-	#team_img_list #team_img_middle:르 {
-		height: 240px;
-		width: 240px;
-	}
-
+    /* --------------team MODAL 팝업창 디자인 ------------------- */
 	#team_modal {
-		display: none;
+		visibility: hidden;
 		position: fixed;
 		left: 0;
 		top: 0;
 		width: 100%;
 		height: 100%;
 		background-color: rgb(0,0,0);
-		background-color: rgba(0,0,0, 0.4); 
+		background-color: rgba(0,0,0, 0.4);
+		z-index: 4;
+
 	}
 
-	#team_modal_content {
-		background-color: white;
-		margin: 15% auto;
-		padding: 20px;
-		border: 1px solid #888;
-		width: 50%; 
-		height: 50%;
-		box-shadow: 2px 2px 8px 1px rgba(0,0,0,.2);
-		z-index: 3;
-	}
-
-	.close{
-		color: #aaa;
-		float: right;
-		font-size: 28px;
-		font-weight: bold;
-	}
-
-	.close:hover, .close:focus {
-		color: black;
-		text-decoration: none;
-		cursor: pointer;
-	}
-
-
-	#player_list_wrap {
-		overflow: scroll;
-	}
-
-	#team_content_3 {
-		text-align: center;
-		margin-top : 30px;
-		font-size: 50px;
-		background-color: black;
-		color: white; 
-	}
-
-	#team_content_3 h3 {
-		color:#C5C5C5;
-	}
-
-	#team_content_3 span {
-		color:rgb(240,178,15);
-	}
-
-	.modal_come_in {
+	.modal_come_in {  /* 팝업창 열었을때 */
 		animation-duration: .25s;
 		animation-name: modal_come_in;
 		animation-timing-function: ease;
@@ -730,53 +563,215 @@
 		}
 	}
 
-	#pop_up_title {
-		text-align: center;
-		font-size: 25px;
+	#team_modal_content {  /* 흰색 팝업창 전채  */
+		background-color: white;
+		transform:translate(-50%, -50%);
+		left:50%;
+		top:50%;
+		padding: 30px;
+		border: 1px solid #888;
+		width: 70%;
+		height: 40%;
+		box-shadow: 2px 2px 8px 1px rgba(0,0,0,.2);
+		z-index: 3;
+		position: relative;
+		
 	}
 
-	.player{
-		display: inline-block;
-		margin: 0 20px;
+	.close{  /* 팝업창 x 창 */
+		color: #aaa;
+		float: right;
+		font-size: 28px;
+		font-weight: bold;
+	}
+
+	.close:hover, .close:focus {  
+		color: black;
+		text-decoration: none;
+		cursor: pointer;
+	}
+
+
+	#player_list_wrap {  /* 팝업창 선수들 목록(ul) */
+		overflow: scroll;
+	}
+
+	#pop_up_title {
 		text-align: center;
+		font-size: 45px;
+	}
+
+	#main_content {  /* */
+		text-align: center;
+		position: relative;
+		height: 50%;
+	}
+
+
+	#main_content #menu_select {  /* 팝업창 메뉴 선택 section */
+		float:left;
+		width: 30%;
+		padding: 25px;
+		height:30%
+	}
+
+	.team_button {  /* team_button  player_button */
+		width: 80%;
+		height: 70%;
+		margin: 60px 20px 0px 20px;
+		border-radius: 13px;
+		font-size: 20px;
+		background-color: #ffc107;
+		display: table;
+		margin-left: 60px;
+		color: white;
+		transition: color 1s ease 0s; 
+	}
+
+	.player_button {  /* team_button  player_button */
+		width: 80%;
+		height: 70%;
+		margin: 60px 20px 0px 20px;
+		border-radius: 13px;
+		font-size: 20px;
+		background-color: #ffc107;
+		display: table;
+		margin-left: 60px;
+		color: white;
+		transition: color 1s ease 0s; 
+	}
+
+	#button_clicked {
+		color: black;
+		background-color: #dfb436;
+	}
+
+	#button_clicked:hover {
+		color:red;
+		transition: all 1s ease 0s;
+	}
+
+	#main_content #menu_select div:hover {
+		cursor:pointer;
+		color: black;
+		transition: all 1s ease 0s; 
+	}
+
+	#main_content #menu_select div  span {
+		text-align: center;
+		vertical-align: middle;
+		display: table-cell;
+		font-weight: bold;
+	}
+
+	#player_main_img_wrap {
+		width:30%;
 		float: left;
 	}
 
-	.player_img {
-		border: 1px black solid;
-		width:60px;
-		height: 60px;
+	#player_main_img {  /* 팝업창 중간 메인 이미지 창 section */
+		width: 60%;
+		height: 30%;
+		position: relative;
+		margin-top: 40px;
+		padding: 20px;
 	}
 
-	.player_name {
-
+	#main_content #stat_show {  /*팝업창 스탯 표시하는 section*/
+		float:left;
+		width:30%;
+		height:80%;
+		margin-top: 50px;
+		margin-left:50px;
+	}
+	
+	#main_content #stat_show canvas{  
+		position:relative;
+		left:50%;
+		transform:translateX(-50%);
+		margin-right: 100px;
+		background-color:white;
 	}
 
-	#player_img_wrap {
-		text-align: center;
-		margin-bottom: 30px;
-	}
-
-	#player_list {
+	#player_list {  /* 선수들 리스트 */
 		overflow: scroll;
 		list-style: none;
-		width: 2100px;
+		width: 9100px;
 	}
 
-	#player_main_img {
-		width: 200px;
+	#player_list li {  /* 선수들 개별 요소  player_list */
+		float: left;
+		border: 1px solid;
+		margin: 30px 20px;
+		display: block;
+		padding: 20px;
+		width: 130px;
+		height: 150px;
+		font-size: 20px;
+		border-radius: 18px;
+	}
+
+	#player_list li img{
+		width:100px;
+		height:100px;
+	}
+
+	#team_stats {
+		z-index:10;
+		margin-top: 40px;
+		height:20%;
+		position: relative;
+		left:10%;
+	}
+	
+	.team_stat {
+		float: left;
+		width: 220px;
 		height: 200px;
-		border: black 1px solid;
+		font-size:22px;
 	}
 
-		
+	.team_stat span {
+		display: block;
+	}
 
+	/* -------------- //team MODAL 팝업창 디자인 ------------------- */
+
+	#team_content_3 {
+		text-align: center;
+		margin-top : 30px;
+		font-size: 50px;
+		background-color: black;
+		color: white; 
+	}
+
+	#team_content_3 h3 {
+		color:#C5C5C5;
+	}
+
+	#team_content_3 span { 
+		/* color:rgb(240,178,15); /*  low orange */
+		color: orange;
+	}
+		
+	#team_cup_select {
+		background-color:black;
+		height: 140px;
+		margin-top:100px;
+	}
+
+	#team_cup_name {
+		font-size:45px;
+		padding-top: 10px;
+		padding-bottom: 10px;
+		color:rgb(240,178,15);
+	}
 
 /* ====================== game sectoin  =======================  */
 
 	#game{
 		background-color: black;
-		height: 1000px; 
+		height: 100%; 
 		text-align: center;
 		background-color: rgb(4,15,19); /* soft black */
 	}
@@ -784,8 +779,90 @@
 	#game h1{
 		color: rgb(240,178,15) /* soft orange */;
 		font-size: 80px;
-		padding-top: 100px;
+		padding-top: 50px;
 	}
+
+	#game_content {
+		position: absolute;
+		width:80%;
+		height:70%;
+		transform:translateX(-50%);
+		left:50%;
+		overflow:scroll;
+	}
+
+	#game_list {
+		text-align: center;
+	}
+
+	#game_list li {
+	}
+
+
+
+	.games_wrap {
+		width:100%;
+		height:200px;
+		padding: 10px;
+	}
+
+
+	.games {
+		display: block;
+		border: 1px solid black;
+		width: 80%;
+		height: 80%;
+		position: relative;
+		transform: translate(-50%, 10%);
+		left: 50%;
+		color: black;
+		background-color:white;
+	}
+
+	.games img:nth-child(1) {
+		border: 1px blue solid; 
+		float:left;
+		position: absolute;
+		transform: translate(-50%, -50%);
+		top: 50%;
+		left: 5%;
+		margin-left:7%;
+	}
+
+	.games img:nth-child(2) {
+		border: 1px green solid; 
+		float:left;
+		position: absolute;
+		transform: translate(-50%, -50%);
+		top: 50%;
+		left: 85%;
+		margin-right:7%;
+	}
+
+	.games span:nth-child(1) {
+		display: block;
+		position: absolute;
+		left: 55%;
+		border: 1px green solid;
+		width: 10px;
+		height: 70%;
+		
+	}
+
+	#game_time_select {
+		border: 1px green solid;
+		width:100%;
+		height: 100px;
+		margin-bottom:20px;
+	}
+
+	
+
+
 /* ====================== //game sectoin  =======================  */
 
 	
+
+@media (max-width: 400px){
+
+}
