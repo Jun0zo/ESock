@@ -12,11 +12,12 @@ var cur_team_index_back = 4;
 
 
 var global_player_infos =1 ;
+var global_player_full_infos = 2;
 var global_team_infos =1 ;
+var global_team_full_infos =2 ;
 //alert('f');
 //==============================. 함수 정의. =================================
 function getIndex(target){
-
 	var targetR = target.parent();
 	//alert ('? : ' + $('#team_img_list li').eq(0).html());
 	for(var i = 0; i < ('#team_img_list li').length; i++){
@@ -135,6 +136,124 @@ function isExistence(object){   //객체존재여부 반환하는 함수
 		return false;
 }
 
+function drawGraph(name, labels_names, labels_datas){
+	var canvas = $('#stat_canvas');
+	
+	Chart.defaults.global.defaultFontFamily = "Lato";
+	Chart.defaults.global.defaultFontSize = 18;
+			
+	var marksData = {
+		labels: labels_names,
+		datasets: [{
+			label: name,
+			backgroundColor: "rgba(244, 123, 315, 0.3)",
+			borderColor: "rgba(200,0,0,0.6)",
+			fill: true,
+			radius: 6,
+			pointRadius: 0,  //포인트 크기조절
+			pointBorderWidth: 3,
+			pointBackgroundColor: "orange",
+			pointBorderColor: "rgba(200,0,0,0.6)",
+			pointHoverRadius: 10,
+			data: labels_datas
+		}]
+	};
+			
+	var chartOptions = {
+		scale: {
+			gridLines: {
+				color: "black",
+				lineWidth: 1
+			},
+			angleLines: {
+				display: false
+			},
+			ticks: {
+				beginAtZero: true,
+				min: 0,
+				max: 100,
+				stepSize: 20
+			},
+				pointLabels: {
+				fontSize: 18,
+				fontColor: "green"
+			}
+		},
+			legend: {
+				position: 'right'
+			},
+			maintainAspectRatio: false,
+			animationEnabled: true,
+			animationEasing: 'easeInOutQuart',
+			animationSteps: 10
+		};
+		
+			var radarChart = new Chart(canvas, {
+			type: 'radar',
+			data: marksData,
+			options: chartOptions,
+		});
+}
+
+function calcGraph (stat_list) {
+	$.ajaxSetup({ async: false });
+	$.ajax({
+		type:'GET',
+		url:'/player/' + '*',
+			success : function(player_infos) {
+				result_data_set = {"GK":[0,0,0,0,0], "DF":[0,0,0,0,0], "MF":[0,0,0,0,0], "FW":[0,0,0,0,0]};
+				global_player_full_infos = player_infos;
+				//alert(global_player_full_infos.length);
+				$.each(global_player_full_infos, function(index, player_info) {
+					//sum = sum + player_info.stat_list[index];
+					if (player_info.position == "Goalkeeper") {
+						
+						result_data_set["GK"][0] += Number(player_info.Saves.replace(',', ''));
+						result_data_set["GK"][1] += Number(player_info.Saves.replace(',', ''));
+						result_data_set["GK"][2] += Number(player_info.Penalties_saved.replace(',', ''));
+						result_data_set["GK"][3] += Number(player_info.High_Claims.replace(',', ''));
+						result_data_set["GK"][4] += Number(player_info.Goal_kicks.replace(',', ''));
+					}
+					else if (player_info.position == "Defender") {
+						result_data_set["DF"][1] += Number(player_info.Aerial_battles_lost.replace(',', ''));
+						result_data_set["DF"][1] += Number(player_info.Tackles.replace(',', ''));
+						result_data_set["DF"][2] += Number(player_info.Accurate_long_ball.replace(',', ''));
+						result_data_set["DF"][3] += Number(player_info.Interceptions.replace(',', ''));
+						result_data_set["DF"][4] += Number(player_info.Passes.replace(',', ''));
+					}
+					else if (player_info.position == "Midfielder") {
+						result_data_set["MF"][1] += Number(player_info.Saves.replace(',', ''));
+						result_data_set["MF"][2] += Number(player_info.Penalties_saved.replace(',', ''));
+						result_data_set["MF"][3] += Number(player_info.High_Claims.replace(',', ''));
+						result_data_set["MF"][4] += Number(player_info.Goal_kicks.replace(',', ''));
+					}
+					else if (player_info.position == "Forward") {
+						result_data_set["FW"][1] += Number(player_info.Saves.replace(',', ''));
+						result_data_set["FW"][2] += Number(player_info.Penalties_saved.replace(',', ''));
+						result_data_set["FW"][3] += Number(player_info.High_Claims.replace(',', ''));
+						result_data_set["FW"][4] += Number(player_info.Goal_kicks.replace(',', ''));
+					}
+				})
+
+				alert(result_data_set["GK"][0]);
+			}
+		});
+		
+		$.ajax({
+			type:'GET',
+			url:'/team/' + team_name,
+			success : function(team_infos) {
+				global_team_full_infos = team_infos;
+			}
+
+
+		});
+	$.ajaxSetup({ async: true });
+	
+		
+	
+}
+
 //============================================= 시작 부분 ===============================================================
 
 $(document).ready(function() {
@@ -165,7 +284,8 @@ $(document).ready(function() {
 			var first_setting = highLight(team_list.PremierLeague[2]);
 			$('#team_content_3').prepend($(first_setting));
 		});
-
+	
+	calcGraph();
 	//------------------. team_img 부분 음영처리 ------------------
 	hideAll( $('.team_img') );
 	var img_list = $('#team_img_list li');
@@ -215,7 +335,7 @@ $(document).ready(function() {
 				var menu_name_game = $('.menu_items').toArray()[4];
 				$(menu_name_game).attr({id : 'menu_bar_fixed_clicked'})
 			}
-			
+		
 		//----------------.  about section 부분 li 색변경. ----------------
 		} else if( chkScrLoc('#team', -300) ){
 			cur_section = 3;
@@ -302,8 +422,7 @@ $(document).ready(function() {
 	//=============================  team_list에서 select태그 꾸미기. =================================
 	$('#team_select').change(function() {
 		var select_name = $(this).children('option:selected').text();
-		$(this).siblings('label').text(select_name);
-		
+		$(this).siblings('label').text(select_name);	
 	})
 
 	//=============================  team_list에서 슬라이드 구현. =================================
@@ -325,15 +444,19 @@ $(document).ready(function() {
 			imgSlide(x_pos_diff , index_diff, 'L');
 		}
 		else{ //가운데 클릭
+
+			
 			$('#team_modal').css({visibility:"visible"});
 			$('#team_modal_content').css({visibility: "visible"});
-			$('#team_modal_content').addClass('modal_come_in'); 
+			$('#team_modal_content').addClass('modal_come_in');
 
 			$('.team_button').css('visibility', 'visible');
 			$('.player_button').css('visibility', 'visible');
 
 			var team_name = $('#team_content_3 h3').text();
 			$('#pop_up_title').text(team_name.toUpperCase());
+
+			$.ajaxSetup({ async: false });
 			$.ajax({
 				type:'GET',
 				url:'/player/' + team_name,
@@ -350,11 +473,10 @@ $(document).ready(function() {
 						html_add += `<li class="players"> <div id="player_img_cover"><img src="${player_img_src}"></div> ${player_name.replace('_',' ')} </li>`;
 					});
 					$('#player_list').prepend(html_add); //선수 목록 추가
-					alert(player_infos);
 					global_player_infos = player_infos;
 				}
 			});
-
+			
 			$.ajax({
 				type:'GET',
 				url:'/team/' + team_name,
@@ -362,7 +484,6 @@ $(document).ready(function() {
 					var html_add = '';
 					//$('team_stat span')[0].text(team_infos[0].name);
 					var team_stat_list = $('.team_stat');
-					
 					//alert(team_infos[0].name);
 					$(team_stat_list[0]).children(':eq(1)').text(team_infos[0].matches_played);
 					$(team_stat_list[1]).children(':eq(1)').text(team_infos[0].goals);
@@ -372,67 +493,16 @@ $(document).ready(function() {
 					global_team_infos = team_infos;
 				}
 			});
+			$.ajaxSetup({ async: true });
+			
+			alert(global_team_infos[0].Shots);
+			alert(global_team_infos[0].Passes_per_match);
 
-			var canvas = $('#stat_canvas');
-	
-			Chart.defaults.global.defaultFontFamily = "Lato";
-			Chart.defaults.global.defaultFontSize = 18;
 			
-			var marksData = {
-			labels: ["Shots on target", "Passes/match", "Clearance", "Chemistfdsry", "Saves"],
-			datasets: [{
-				label: team_name,
-				backgroundColor: "rgba(244, 123, 315, 0.3)",
-				borderColor: "rgba(200,0,0,0.6)",
-				fill: true,
-				radius: 6,  
-				pointRadius: 0,  //포인트 크기조절
-				pointBorderWidth: 3,
-				pointBackgroundColor: "orange",
-				pointBorderColor: "rgba(200,0,0,0.6)",
-				pointHoverRadius: 10,
-				data: [80, 75, 70, 80, 60]
-				}]
-			};
+			draw_graph(team_name, ["Shots", "Passes/match", "Clearance", "Chemist", "Saves"],
+					[global_team_infos[0].Shots,
+					global_team_infos[0].Passes_per_match,70,57,60]);
 			
-			var chartOptions = {
-			scale: {
-				gridLines: {
-				color: "black",
-				lineWidth: 1
-				},
-				angleLines: {
-				display: false
-				},
-				ticks: {
-				beginAtZero: true,
-				min: 0,
-				max: 100,
-				stepSize: 20
-				},
-				pointLabels: {
-				fontSize: 18,
-				fontColor: "green"
-				}
-			},
-			legend: {
-				position: 'right'
-			},
-			maintainAspectRatio: false,
-			animationEnabled: true,
-			animationEasing: 'easeInOutQuart',
-			animationSteps: 10
-			};
-			
-			var radarChart = new Chart(canvas, {
-				type: 'radar',
-				data: marksData,
-				options: chartOptions,
-			
-			});
-			//alert('data : ' + data);
-
-			return false;
 		}
 	});
 
@@ -451,7 +521,7 @@ $(document).ready(function() {
 	})
 
 
-	$('img').click(function (){
+	$('.players').click(function (){
 		alert('click!!');
 	});
 	//=============================  팝업창 동작 구현. =================================
@@ -512,8 +582,4 @@ $(document).ready(function() {
 		$('#team_modal_content').css('visibility', "hidden");
 		$('#team_modal').css('visibility', "hidden");
 	});
-
-
-
-
 });	

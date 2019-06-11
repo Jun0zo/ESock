@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 app.js
 bin
 cup.json
@@ -10,3 +11,6 @@ public
 routes
 test.txt
 views
+=======
+test
+>>>>>>> fe9da58555906775562b724fa008d9fa2f0eeb1d

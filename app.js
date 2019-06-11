@@ -1,5 +1,6 @@
 var express = require('express');
 var app = express();
+
 var mysql = require('mysql');
 var bodyParser = require('body-parser');
 var $ = require('jquery');
@@ -46,9 +47,14 @@ app.get('/player/:team_name', function(req, res) {
 		port:3306,
 		database:'Esock'
 	});
-	console.log(req.params.team_name);
 
-	db.query(`SELECT * FROM player WHERE team_name = "${req.params.team_name.replace(' ','_')}"`, function(err, player_infos){
+	if (req.params.team_name == '*')
+		var query = `SELECT * FROM player`;
+	else
+		var query = `SELECT * FROM player WHERE team_name = "${req.params.team_name.replace(' ','_')}"`;
+	
+	console.log(query);
+	db.query(query, function (err, player_infos){
 		if(err)
 			console.log(err);
 		res.send(player_infos);
@@ -59,7 +65,6 @@ app.get('/player/:team_name', function(req, res) {
 
 app.get('/team/:team_name', function(req, res) {
 
-
 	var db = mysql.createConnection({
 		host:'localhost',
 		user:'root',
@@ -68,20 +73,18 @@ app.get('/team/:team_name', function(req, res) {
 		database:'Esock'
 	});
 
-
 	db.query(`SELECT * FROM team WHERE name = "${req.params.team_name.replace(' ','_')}"`, function(err, team_infos){
 		if(err)
 			console.log(err);
 		console.log(team_infos);
 		res.send(team_infos);
-		
 	});
 
 	db.end();
 	console.log("/team !!! ");
 });
 
-app.listen(8800, function(){
+app.listen(2000, function(){
   console.log('================== Server Start ==================');
   console.log('=                                                =');
   console.log('=                                                =');
@@ -91,3 +94,28 @@ app.listen(8800, function(){
   console.log('=                                                =');
   console.log('==================================================');
 });
+
+const fs = require('fs');
+
+//let cup_list_raw = fs.readFileSync('cup_list.json');
+//let cup_list = JSON.parse(cup_list_raw);
+
+
+app.set('view engine', 'ejs');
+//app.set('.index.ejs', './view');;
+
+//var rawdata = fs.readFileSync('cup_list.json');
+
+app.use(express.static(__dirname + '/public'));
+
+app.get('/', function(req, res){
+  res.render('index.ejs', {title:'jo2on'});
+  console.log('complete!');
+});
+
+app.get('/cup.json', function(data){
+  console.log("cup_list.json111");
+});
+
+
+
