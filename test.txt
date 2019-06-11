@@ -1,1 +1,16 @@
+<<<<<<< HEAD
+app.js
+bin
+cup.json
+myadmin
+node_modules
+package-lock.json
+package.json
+player_crawling
+public
+routes
+test.txt
+views
+=======
 test
+>>>>>>> fe9da58555906775562b724fa008d9fa2f0eeb1d

@@ -1,0 +1,31 @@
+{"cup": 
+	[
+		{	
+			"name": "Primera Liga",
+			"country": "spain",
+			"country_file": "spain.png",
+			"logo_file": "Laliga_lgo.png",
+			"speed": 50,
+			"build": 50,
+			"skill": 50
+		},
+		{
+			"name": "Preimer League",
+			"country": "Europe",
+			"country_dir": "europe.png",
+			"logo_dir": "PremierLeague_logo.png",
+			"speed": 50,
+			"build": 50,
+			"skill": 50
+		},
+		{
+			"name": "BundesLiga",
+			"country": "German",
+			"country_dir": "german.png",
+			"logo_dir": "BundesLiga_logo.png",
+			"speed": 50,
+			"build": 50,
+			"skill": 50
+		}
+	]
+}
