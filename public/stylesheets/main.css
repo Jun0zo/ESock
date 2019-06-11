@@ -1,6 +1,9 @@
 @import "compass/css3";
 @font-face{
+<<<<<<< HEAD
 
+=======
+>>>>>>> 286216eabc11637dbf85ee315932c30ef1fe7919
 	font-family: 'LetterCraft';
 	src: url('Letter-Craft_font/Letter-Craft_font/Letter_Craft.ttf')
 }
@@ -8,17 +11,23 @@
 	/* .menu_bar ul li:first-child{border-left: 1px solid green;} */
 	html, body {
 		height: 100%;
+<<<<<<< HEAD
 		zoom: 0.9;
 		overflow-x: none;
+=======
+>>>>>>> 286216eabc11637dbf85ee315932c30ef1fe7919
 	}
 	* {
 		padding: 0;
 		margin: 0;
 		list-style: none;
 		text-decoration: none;
+<<<<<<< HEAD
 		font-family: 'Poppins';
 		-ms-user-select: none; -moz-user-select: -moz-none; -webkit-user-select: none; -khtml-user-select: none; user-select:none;
 
+=======
+>>>>>>> 286216eabc11637dbf85ee315932c30ef1fe7919
 	}
 
 	li{
@@ -169,11 +178,15 @@
 
 	#menu_bar_fixed_clicked{
 		color: red;
+<<<<<<< HEAD
 		animation-name: red_light;
 		animation-duration: 1.5s;
 		animation-iteration-count: infinite;
 		animation-direction:alternate;
 		animation-delay: 0s;
+=======
+		animation: red_light 1.5s infinite alternate;
+>>>>>>> 286216eabc11637dbf85ee315932c30ef1fe7919
 	}
 
 	#main_title {
@@ -182,8 +195,11 @@
 		left:50%; 
 		transform:translateX(-50%);
 		z-index: 2;
+<<<<<<< HEAD
 		padding-top: 8%
 		
+=======
+>>>>>>> 286216eabc11637dbf85ee315932c30ef1fe7919
 	}
 
 	@keyframes red_light {
@@ -216,6 +232,10 @@
 		height: 300px;
 		width: 100%;
 		margin-top: 50px;
+<<<<<<< HEAD
+=======
+
+>>>>>>> 286216eabc11637dbf85ee315932c30ef1fe7919
 	}
 
 	#about_describe {
@@ -264,11 +284,18 @@
 /* ====================== cup area ==================== */
 
 	#cup {
+<<<<<<< HEAD
 		
 		width: 100%;
 		height: 100%;
 		background-color: rgb(4,15,19); /* soft black */
 
+=======
+		width: 100%;
+		height: 100%;
+		background-color: rgb(4,15,19); /* soft black */
+		padding-bottom: 50px;
+>>>>>>> 286216eabc11637dbf85ee315932c30ef1fe7919
 
 	}
 
@@ -278,7 +305,11 @@
 		font-family: sans-serif;
 		justify-content: space-around;
 		align-items: center;
+<<<<<<< HEAD
 		padding-top: 5%;
+=======
+
+>>>>>>> 286216eabc11637dbf85ee315932c30ef1fe7919
 	}
 
 	#cup_title h1 {
@@ -289,6 +320,10 @@
 	#cup_content_wrap {
 		justify-content: space-around;
 		align-items: center;
+<<<<<<< HEAD
+=======
+		height: 500px;
+>>>>>>> 286216eabc11637dbf85ee315932c30ef1fe7919
 		margin-top: 50px;
 	}
 
@@ -309,7 +344,10 @@
 	}
 
 	#country_name {
+<<<<<<< HEAD
 
+=======
+>>>>>>> 286216eabc11637dbf85ee315932c30ef1fe7919
 	}
 
 	#cup_image {
@@ -397,7 +435,10 @@
 	}
 
 	.cup_image_change:hover{
+<<<<<<< HEAD
 
+=======
+>>>>>>> 286216eabc11637dbf85ee315932c30ef1fe7919
 	}
 
 	.cup_image_change:active{
@@ -445,7 +486,10 @@
 		flex-direction: column;
 		justify-content: center;
 		overflow: hidden;
+<<<<<<< HEAD
 		padding-top:10%
+=======
+>>>>>>> 286216eabc11637dbf85ee315932c30ef1fe7919
 	}
 
 	#team_title {
@@ -464,10 +508,151 @@
 		height: 300px;
 		align-items: center;
 		text-align: center;
+<<<<<<< HEAD
 		overflow: hidden;
 	}
 
 	
+=======
+	}
+
+	.s_c {
+		position: absolute;
+		left: 0;
+		width: 100%;
+		height: 50%;
+	}
+
+	.s_c.top {
+		top: 0;
+	}
+
+	.s_c.bottom {
+		bottom: 0;
+	}
+
+	#app_cover {
+		height: 10px;
+		width: 300px;
+		background-color: blue; 
+	}
+
+	#select_button {
+		position: relative;
+		height: 16px;
+		padding: 12px 14px;
+		border-radius: 4px;
+		cursor: pointer;
+		background-color: green;
+	}
+
+	#options_view_button {
+		top: 300;
+		right: 0px;
+		left: 0px;
+		bottom: 0px;
+		margin: 0;
+		opacity: 0;
+		position: relative;
+		width: 100%;
+		height: 100%;
+		background-color: blue;
+		z-index: 3;
+	}
+
+	#selected_value {
+		font-size: 16px;
+		line-height: 1;
+		margin-right: 26px
+	}
+
+	.option i {
+		width: 16px;
+		height: 16px;
+	}
+
+	.option .label {
+		color: #2d3667;
+		font-size: 16px;
+	}
+
+	.options_view_button:checked + #select_button #chevrons i {
+		color: #2d3667;
+	}
+
+	.options {
+		position: absolute;
+		left: 0;
+		width: 250px;
+	}
+
+	#options {
+
+	}
+
+	#options_view_button ~ #options {
+		border: 1px solid #e2eded;
+		border-color: #eaf1f1 #e4eded #dbe7e7 #e4eded;
+	}
+
+	.option {
+		position: relative;
+		line-height: 1;
+		transition: 0.3s ease all;
+		z-index: 2; 
+	}
+
+	.option i {
+		position: absolute;
+		left: 14px;
+		padding: 0;
+		display: none;
+	}
+
+	#options_view_button:checked ~#option .option i {
+		display: block;
+		padding: 12px 0;
+	}
+
+	.label {
+		display: none;
+		padding : 0
+		
+	}
+
+	#chevros {
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		width: 12px;
+		padding: 9px 15px;
+	}
+
+	#chevros i {
+		display: block;
+		height: 50%;
+		color: #d1dede;
+		text-align: right;
+		text-align: center;
+	}
+
+	.s_c:hover ~ i {
+		color:#fff;
+		opacity: 0;
+	}
+
+	.s_c:hover {
+		height:100%;
+		z-index:1;
+	}
+
+	.s_c.bottom:hover + i {
+		bottom:-25px;
+		animation: moveup 0.3s ease 0.1s forwards;
+	}
+
+>>>>>>> 286216eabc11637dbf85ee315932c30ef1fe7919
 
 	@keyframes moveup{
 		0% {
@@ -483,13 +668,21 @@
 
 	#team_img_list {
 		background-color: white; 
+<<<<<<< HEAD
 		width: 10400px;
 		height: 300px;
 		margin-left:15%;
+=======
+		overflow:hidden; 
+		margin-left: 10px;
+		width: 10400px;
+		height: 300px;
+>>>>>>> 286216eabc11637dbf85ee315932c30ef1fe7919
 	}
 
 	#team_img_list li {
 		text-align: center;
+<<<<<<< HEAD
 		display: block;
 		float: left;
 		margin: 25px 10px;
@@ -499,12 +692,25 @@
 	}
 
 
+=======
+		float: left;
+		margin-top: 40px;
+		margin-left: 95px;
+		margin-bottom: 10px;
+		list-style: none;
+	}
+
+>>>>>>> 286216eabc11637dbf85ee315932c30ef1fe7919
 	.team_img {
 		transition-property: height width margin-top;
 		transition-duration: 1s;
 		height: 150px;
 		width: 150px;
 		margin-top: 40px;
+<<<<<<< HEAD
+=======
+
+>>>>>>> 286216eabc11637dbf85ee315932c30ef1fe7919
 	}
 
 	.team_img:hover {
@@ -516,18 +722,32 @@
 	#team_img_list #team_img_middle{
 		height: 230px;
 		width: 230px;
+<<<<<<< HEAD
 		margin-top : 0;
 	}
 
     /* --------------team MODAL 팝업창 디자인 ------------------- */
 	#team_modal {
 		visibility: hidden;
+=======
+		margin-top : 0px;
+	}
+
+	#team_img_list #team_img_middle:르 {
+		height: 240px;
+		width: 240px;
+	}
+
+	#team_modal {
+		display: none;
+>>>>>>> 286216eabc11637dbf85ee315932c30ef1fe7919
 		position: fixed;
 		left: 0;
 		top: 0;
 		width: 100%;
 		height: 100%;
 		background-color: rgb(0,0,0);
+<<<<<<< HEAD
 		background-color: rgba(0,0,0, 0.4);
 		z-index: 4;
 		transform : translate(-50%, -50%);
@@ -581,19 +801,41 @@
 	}
 
 	.close{  /* 팝업창 x 창 */
+=======
+		background-color: rgba(0,0,0, 0.4); 
+	}
+
+	#team_modal_content {
+		background-color: white;
+		margin: 15% auto;
+		padding: 20px;
+		border: 1px solid #888;
+		width: 50%; 
+		height: 50%;
+		box-shadow: 2px 2px 8px 1px rgba(0,0,0,.2);
+		z-index: 3;
+	}
+
+	.close{
+>>>>>>> 286216eabc11637dbf85ee315932c30ef1fe7919
 		color: #aaa;
 		float: right;
 		font-size: 28px;
 		font-weight: bold;
 	}
 
+<<<<<<< HEAD
 	.close:hover, .close:focus {  
+=======
+	.close:hover, .close:focus {
+>>>>>>> 286216eabc11637dbf85ee315932c30ef1fe7919
 		color: black;
 		text-decoration: none;
 		cursor: pointer;
 	}
 
 
+<<<<<<< HEAD
 	#player_list_wrap {  /* 팝업창 선수들 목록(ul) */
 		overflow: scroll;
 	}
@@ -768,12 +1010,110 @@
 		padding-bottom: 10px;
 		color:rgb(240,178,15);
 	}
+=======
+	#player_list_wrap {
+		overflow: scroll;
+	}
+
+	#team_content_3 {
+		text-align: center;
+		margin-top : 30px;
+		font-size: 50px;
+		background-color: black;
+		color: white; 
+	}
+
+	#team_content_3 h3 {
+		color:#C5C5C5;
+	}
+
+	#team_content_3 span {
+		color:rgb(240,178,15);
+	}
+
+	.modal_come_in {
+		animation-duration: .25s;
+		animation-name: modal_come_in;
+		animation-timing-function: ease;
+	}
+
+	@keyframes modal_come_in{
+		0% {
+			visibility: hidden;
+			opacity: 0;
+			transform: scale(.8, .8);
+		}
+		65.5% {
+			transform: scale(1.03, 1.03);
+		}
+
+		100% {
+			visibility: visible;
+			opacity: 1;
+			transform: scale(1,1);
+		}
+	}
+
+	@keyframes modal_come_out {
+		0% {
+			visibility: visible;
+			opacity: 0;
+			transform: translateY(35px);
+		}
+	}
+
+	#pop_up_title {
+		text-align: center;
+		font-size: 25px;
+	}
+
+	.player{
+		display: inline-block;
+		margin: 0 20px;
+		text-align: center;
+		float: left;
+	}
+
+	.player_img {
+		border: 1px black solid;
+		width:60px;
+		height: 60px;
+	}
+
+	.player_name {
+
+	}
+
+	#player_img_wrap {
+		text-align: center;
+		margin-bottom: 30px;
+	}
+
+	#player_list {
+		overflow: scroll;
+		list-style: none;
+		width: 2100px;
+	}
+
+	#player_main_img {
+		width: 200px;
+		height: 200px;
+		border: black 1px solid;
+	}
+
+		
+
+>>>>>>> 286216eabc11637dbf85ee315932c30ef1fe7919
 
 /* ====================== game sectoin  =======================  */
 
 	#game{
 		background-color: black;
+<<<<<<< HEAD
 		height: 100%; 
+=======
+		height: 1000px; 
+>>>>>>> 286216eabc11637dbf85ee315932c30ef1fe7919
 		text-align: center;
 		background-color: rgb(4,15,19); /* soft black */
 	}
@@ -781,6 +1121,7 @@
 	#game h1{
 		color: rgb(240,178,15) /* soft orange */;
 		font-size: 80px;
+<<<<<<< HEAD
 		padding-top: 50px;
 	}
 
@@ -868,3 +1209,10 @@
 @media (max-width: 400px){
 
 }
+=======
+		padding-top: 100px;
+	}
+/* ====================== //game sectoin  =======================  */
+
+	
+>>>>>>> 286216eabc11637dbf85ee315932c30ef1fe7919
