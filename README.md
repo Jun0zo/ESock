@@ -1,4 +1,4 @@
-# ESock (Online Compiler ver 0.1)
+# ESock
 
 EPL사이트를 크롤링 한 후 리그정보, 선수정보 등을 표시하는 웹페이지 입니다.
 
