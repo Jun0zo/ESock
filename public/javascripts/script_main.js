@@ -1,9 +1,5 @@
 // 비동기로 json파일 불러오기 1. cup_leage  2.team 전체
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 286216eabc11637dbf85ee315932c30ef1fe7919
 //==============================. 변수 정의. =================================
 var max = 3;
 var index = 0;
@@ -11,7 +7,6 @@ var is_scroll_state_up = 1;
 var cur_section = -1, bef_section = -2;
 var is_section_change = -1;
 var cup_list, team_list;
-<<<<<<< HEAD
 var cur_team_index_front = 0;
 var cur_team_index_back = 4;
 
@@ -23,16 +18,6 @@ var global_team_full_infos =2 ;
 //alert('f');
 //==============================. 함수 정의. =================================
 function getIndex(target){
-=======
-
-var cur_team_index_front = 0;
-var cur_team_index_back = 4;
-
-//alert('f');
-//==============================. 함수 정의. =================================
-function getIndex(target){
-
->>>>>>> 286216eabc11637dbf85ee315932c30ef1fe7919
 	var targetR = target.parent();
 	//alert ('? : ' + $('#team_img_list li').eq(0).html());
 	for(var i = 0; i < ('#team_img_list li').length; i++){
@@ -124,11 +109,7 @@ function imgSlide(x_pos_diff, diff, to){
 					$(cur_img).css({opacity : 0.0}); //마지막인덱스는 사라짐
 
 				$('.team_img').eq(cur_team_index_front - 1).css({opacity : 1.0}); //나오는 이미지는 fadeIn처리
-<<<<<<< HEAD
 			}
-=======
-			}	
->>>>>>> 286216eabc11637dbf85ee315932c30ef1fe7919
 			cur_team_index_front -= 1;
 		}
 		var target_team_name = team_list.PremierLeague[cur_team_index_front + 2];
@@ -155,7 +136,6 @@ function isExistence(object){   //객체존재여부 반환하는 함수
 		return false;
 }
 
-<<<<<<< HEAD
 function drawGraph(name, labels_names, labels_datas){
 	var canvas = $('#stat_canvas');
 	
@@ -275,17 +255,11 @@ function calcGraph (stat_list) {
 }
 
 //============================================= 시작 부분 ===============================================================
-=======
-
-
-//============================================= 시작 부분 =============================================
->>>>>>> 286216eabc11637dbf85ee315932c30ef1fe7919
 
 $(document).ready(function() {
 
 	//==============================. 데이터 전처리. =================================
 
-<<<<<<< HEAD
 		//------------------. json파일 import. ------------------
 		$.getJSON('/data/cup_list.json', function(data){
 			cup_list = data;
@@ -326,36 +300,6 @@ $(document).ready(function() {
 	// $('#team_img_list').css({"margin-left": Math.abs(diff_offset) - 1});
 
 	
-=======
-	//------------------. json파일 import. ------------------
-	$.getJSON('/data/cup_list.json', function(data){
-		cup_list = data;
-		$('.cup_image').attr({src :'/images/cup_icon/' + cup_list.cup[0].logo_file});
-		$('#cup_pg_bar_1').animate({width: cup_list.cup[0].speed + '%'});
-		$('#cup_pg_bar_2').animate({width: cup_list.cup[0].build + '%'});
-		$('#cup_pg_bar_3').animate({width: cup_list.cup[0].skill + '%'});
-	});
-
-	//------------------. team_list 이미지 적용. ------------------
-	$.ajaxSetup({ async: false });
-	$.getJSON('/data/team_list.json', function(data){
-		team_list = data;
-		team_list_reversed = $(team_list.PremierLeague).get().reverse();  //미리 데이터 로딩
-		$(team_list_reversed).each(function(index, data){
-			var next = '<li><img class="team_img" src="' + strToSrc('/images/club_icon/epl/', data, 'png') + '" > </li>';  //이미지 파일 로드
-			$('#team_img_list').prepend($(next));
-
-		})
-		$('.team_img').eq(2).attr({id : 'team_img_middle'});  //중간 요소 크기조정
-
-		var first_setting = highLight(team_list.PremierLeague[2]);
-		$('#team_content_3').prepend($(first_setting));
-	});
-
-	//------------------. team_img 부분 음영처리 ------------------
-	hideAll( $('.team_img') );
-
->>>>>>> 286216eabc11637dbf85ee315932c30ef1fe7919
 
 	$.ajaxSetup({ async: true });
 	//==============================. 스크롤 시. =================================
@@ -371,10 +315,6 @@ $(document).ready(function() {
 		//----------------. about글씨 애니메이션. ----------------
 		var about_dc_Offset = $('#about').offset();
 		if( $(document).scrollTop() > about_dc_Offset.top - 400 && $(document).scrollTop() < about_dc_Offset.top + 400 ){
-<<<<<<< HEAD
-=======
-
->>>>>>> 286216eabc11637dbf85ee315932c30ef1fe7919
 			$('#about_describe').removeClass('slideout');
 			$('#about_describe').addClass('slidein');
 		}
@@ -395,11 +335,7 @@ $(document).ready(function() {
 				var menu_name_game = $('.menu_items').toArray()[4];
 				$(menu_name_game).attr({id : 'menu_bar_fixed_clicked'})
 			}
-<<<<<<< HEAD
 		
-=======
-			
->>>>>>> 286216eabc11637dbf85ee315932c30ef1fe7919
 		//----------------.  about section 부분 li 색변경. ----------------
 		} else if( chkScrLoc('#team', -300) ){
 			cur_section = 3;
@@ -437,20 +373,12 @@ $(document).ready(function() {
 				$(menu_name_game).attr({id : 'menu_bar_fixed_clicked'})
 			}
 		}
-<<<<<<< HEAD
-=======
-		
->>>>>>> 286216eabc11637dbf85ee315932c30ef1fe7919
 	});
 
 	//==============================. 메뉴 클릭 시 애니메이션. =================================
 	$('.menu_items').click(function(event){
 		event.preventDefault();
-<<<<<<< HEAD
 		$('html,body').animate({scrollTop:$(this.hash).offset().top}, 700);
-=======
-		$('html,body').animate({scrollTop:$(this.hash).offset().top}, 500);
->>>>>>> 286216eabc11637dbf85ee315932c30ef1fe7919
 	});
 
 	//=============================  cup_list에서 화살표 클릭시 리그 정보 변경. =================================
@@ -494,31 +422,17 @@ $(document).ready(function() {
 	//=============================  team_list에서 select태그 꾸미기. =================================
 	$('#team_select').change(function() {
 		var select_name = $(this).children('option:selected').text();
-<<<<<<< HEAD
 		$(this).siblings('label').text(select_name);	
-=======
-		$(this).siblings('label').text(select_name);
->>>>>>> 286216eabc11637dbf85ee315932c30ef1fe7919
 	})
 
 	//=============================  team_list에서 슬라이드 구현. =================================
 	$('.team_img').click(function(event){
 		var first_li = $('#team_img_list li').eq(0 + cur_team_index_front);
-<<<<<<< HEAD
 		var first_img_list = $('#team_img_list li').eq(0 + cur_team_index_front);
 		var last_li = $('#team_img_list li').eq(4 + cur_team_index_front);
 		var last_img = $('.team_img').eq(4 + cur_team_index_front);
 		var x_pos_diff = $( $('#team_img_list li').eq(1 + cur_team_index_front) ).position().left - $(first_img_list).position().left; //150.5
 		//alert(x_pos_diff);
-=======
-		var first_img = $('.team_img').eq(0 + cur_team_index_front);
-		var last_li = $('#team_img_list li').eq(4 + cur_team_index_front);
-		var last_img = $('.team_img').eq(4 + cur_team_index_front);
-		var x_pos_diff = $( $('.team_img').eq(1 + cur_team_index_front) ).position().left - $(first_img).position().left; //150.5
-		//alert(x_pos_diff);
-
-
->>>>>>> 286216eabc11637dbf85ee315932c30ef1fe7919
 		var clicked_index = getIndex($(event.target));
 		var middle_index = 2+cur_team_index_front
 		var index_diff = Math.abs(clicked_index - middle_index);
@@ -530,7 +444,6 @@ $(document).ready(function() {
 			imgSlide(x_pos_diff , index_diff, 'L');
 		}
 		else{ //가운데 클릭
-<<<<<<< HEAD
 
 			
 			$('#team_modal').css({visibility:"visible"});
@@ -669,23 +582,4 @@ $(document).ready(function() {
 		$('#team_modal_content').css('visibility', "hidden");
 		$('#team_modal').css('visibility', "hidden");
 	});
-=======
-			var modal = $('#team_modal');
-			modal.css({display: "block"});
-			modal.addClass('modal_come_in');
-		}
-	});
-
-	//----------------.  팝업창 디자인. ----------------
-
-	$('.close').click(function(){
-		$('#team_modal').css({display : "none"});
-	});
-
-	$('#team_modal').click(function(){
-		$('#team_modal').css({display : "none"});
-	});
-
-
->>>>>>> 286216eabc11637dbf85ee315932c30ef1fe7919
 });	
